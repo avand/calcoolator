@@ -12,15 +12,15 @@
   <body>
     <div id="number-of-days" class="box padded">
       <div class="grid">
-        <div class="grid__col grid__col--4-of-6">
-          <div class="number-of-days-control">
-            <input type="range" class="cool-slider" min="1" max="30" value="3" data-changes="#days">
+        <div class="grid__col grid__col--3-of-12 align-center">
+          <div class="number-of-days-label slider-label">
+            <span id="days" class="bold">3</span> days
           </div>
         </div>
 
-        <div class="grid__col grid__col--2-of-6 align-center">
-          <div class="number-of-days-label slider-label">
-            <span id="days" class="bold">3</span> days
+        <div class="grid__col grid__col--9-of-12">
+          <div class="number-of-days-control">
+            <input type="range" class="cool-slider" min="1" max="30" value="3" data-changes="#days">
           </div>
         </div>
       </div>
@@ -31,53 +31,53 @@
         <a href="#" class="cooler-remove-control absolute">×</a>
 
         <div class="grid">
-          <div class="grid__col grid__col--3-of-6 align-center">
+          <div class="grid__col grid__col--6-of-12">
             <div class="cooler-type cooler-type-active pointer" data-cooler-type="freezer">
-              <img src="images/steak.png" width="60" height="60" alt="steak"><br>
+              <img src="images/steak.png" width="50" height="50" alt="steak" class="left">
               <span class="cooler-type-label">Freezer</span>
             </div>
           </div>
 
-          <div class="grid__col grid__col--3-of-6 align-center">
+          <div class="grid__col grid__col--6-of-12">
             <div class="cooler-type pointer" data-cooler-type="fridge">
-              <img src="images/beer.png" width="60" height="60" alt="beer"><br>
+              <img src="images/beer.png" width="50" height="50" alt="beer" class="left">
               <span class="cooler-type-label">Fridge</span>
             </div>
           </div>
 
-          <div class="grid__col grid__col--4-of-6">
+          <div class="grid__col grid__col--3-of-12 align-center">
+            <div class="cooler-size-label slider-label">
+              <span class="quarts bold">50</span> <abbr title="Quarts">qts</abbr>
+            </div>
+          </div>
+
+          <div class="grid__col grid__col--9-of-12">
             <div class="cooler-size-control">
               <input type="range" class="cool-slider" min="5" max="200" step="5" value="50"
                 data-changes=".quarts" data-changes-within=".cooler">
             </div>
           </div>
-
-          <div class="grid__col grid__col--2-of-6 align-center">
-            <div class="cooler-size-label slider-label">
-              <span class="quarts bold">50</span> quarts
-            </div>
-          </div>
         </div>
       </div>
+
+      <a href="#" id="add-cooler-button" class="uppercase box padded align-center block">+ Add cooler</a>
     </div>
 
     <div id="results">
-      <div class="grid">
-        <div class="grid__col grid__col--2-of-6">
-          <div class="cooler-actions">
-            <a href="#" id="add-cooler-button">+ Add cooler</a>
-          </div>
-        </div>
-        <div class="grid__col grid__col--4-of-6 align-center">
-          <div class="box padded">
+      <div class="padded">
+        <div class="grid">
+          <div class="grid__col grid__col--6-of-12">
             <div class="results-total">
-              = <span id="pounds" class="bold">63</span> lbs
+              = <span id="pounds" class="bold">63</span>
+              <span id="unit"><abbr title="Pounds">lbs</abbr></span>
             </div>
             <div class="results-label">
               estimated dry ice
             </div>
+          </div>
+          <div class="grid__col grid__col--6-of-12 align-center">
             <div class="results-call-to-action">
-              <a href="http://bensdryice.com" class="button">Buy dry ice</a>
+              <a href="http://bensdryice.com" class="button uppercase">Buy dry ice</a>
             </div>
           </div>
         </div>

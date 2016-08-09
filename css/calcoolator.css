@@ -81,7 +81,8 @@ a:hover {
 }
 
 .cooler-actions {
-  padding: 2px 0 0 15px;
+  font-size: 14px;
+  margin-left: 5px;
 }
 
 .results-total {

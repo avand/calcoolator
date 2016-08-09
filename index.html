@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dry Ice Calculator</title>
+    <link rel="stylesheet" href="css/calcoolator.css" media="screen" charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=.|Roboto:light,normal,bold" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="js/calcoolator.js"></script>
+  </head>
+  <body>
+    <div id="number-of-days" class="box padded">
+      <div class="grid">
+        <div class="grid__col grid__col--4-of-6">
+          <div class="number-of-days-control">
+            <input type="range" class="cool-slider" min="1" max="30" value="3" data-changes="#days">
+          </div>
+        </div>
+
+        <div class="grid__col grid__col--2-of-6 align-center">
+          <div class="number-of-days-label slider-label">
+            <span id="days" class="bold">3</span> days
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="coolers">
+      <div class="cooler box padded relative">
+        <a href="#" class="cooler-remove-control absolute">×</a>
+
+        <div class="grid">
+          <div class="grid__col grid__col--3-of-6 align-center">
+            <div class="cooler-type cooler-type-active pointer" data-cooler-type="freezer">
+              <img src="images/steak.png" width="60" height="60" alt="steak"><br>
+              <span class="cooler-type-label">Freezer</span>
+            </div>
+          </div>
+
+          <div class="grid__col grid__col--3-of-6 align-center">
+            <div class="cooler-type pointer" data-cooler-type="fridge">
+              <img src="images/beer.png" width="60" height="60" alt="beer"><br>
+              <span class="cooler-type-label">Fridge</span>
+            </div>
+          </div>
+
+          <div class="grid__col grid__col--4-of-6">
+            <div class="cooler-size-control">
+              <input type="range" class="cool-slider" min="5" max="200" step="5" value="50"
+                data-changes=".quarts" data-changes-within=".cooler">
+            </div>
+          </div>
+
+          <div class="grid__col grid__col--2-of-6 align-center">
+            <div class="cooler-size-label slider-label">
+              <span class="quarts bold">50</span> quarts
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="results">
+      <div class="grid">
+        <div class="grid__col grid__col--3-of-6">
+          <div class="cooler-actions">
+            <a href="#" id="add-cooler-button">+ Add cooler</a>
+          </div>
+        </div>
+        <div class="grid__col grid__col--3-of-6 align-center">
+          <div class="box padded">
+            <div class="results-total">
+              = <span class="bold">60</span> lbs
+            </div>
+            <div class="results-label">
+              estimated dry ice
+            </div>
+            <div class="results-call-to-action">
+              <a href="#" class="button">Buy dry ice</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

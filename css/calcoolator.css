@@ -1,0 +1,95 @@
+@import "toast-grid.css";
+@import "sprinkles.css";
+@import "cool-slider.css";
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+}
+
+a {
+  color: #f0c417;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.button {
+  color: #ffffff;
+  background: #f0c417;
+  text-decoration: none;
+  box-shadow: inset 0 -3px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  border-radius: 4px;
+  text-transform: uppercase;
+  width: 100%;
+  display: inline-block;
+}
+
+.padded {
+  padding: 20px;
+}
+
+.box {
+  border: 2px solid #eee;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.slider-label {
+  line-height: 30px;
+}
+
+.cooler {
+  transition: opacity 400ms;
+}
+
+.cooler-remove-control {
+  color: rgba(0, 0, 0, 0.2);
+  top: -2px;
+  right: -2px;
+  transition: color 100ms;
+  padding: 4px 6px 0px;
+  font-size: 25px;
+  line-height: 18px;
+}
+.cooler-remove-control:hover {
+  color: rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+}
+.cooler:first-of-type .cooler-remove-control {
+  display: none;
+}
+
+.cooler-type {
+  border-radius: 4px;
+  padding: 0 10px 10px;
+  margin-bottom: 20px;
+  transition: background 300ms, border-color 100ms;
+  border: 2px solid white;
+}
+.cooler-type:hover,
+.cooler-type-active {
+  border-color: #F3F3F3;
+}
+.cooler-type-active {
+  background: #F3F3F3;
+}
+.cooler-type-active .cooler-type-label {
+  font-weight: bold;
+}
+
+.cooler-actions {
+  padding: 2px 0 0 15px;
+}
+
+.results-total {
+  font-size: 1.75em;
+}
+.results-label {
+  font-size: .75em;
+}
+.results-call-to-action {
+  margin-top: 10px;
+}

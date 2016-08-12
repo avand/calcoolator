@@ -64,9 +64,8 @@ $(document).ready(function() {
 
       setTimeout(function() {
         cooler.remove();
+        updatePounds();
       }, parseFloat(cooler.css("transition-duration")) * 1000);
-
-      updatePounds();
     })
 
     $(".cool-slider").on("input", function() {

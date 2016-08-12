@@ -28,7 +28,7 @@ a:hover {
 }
 
 .padded {
-  padding: 15px;
+  padding: 18px;
 }
 
 .box {
@@ -50,7 +50,7 @@ a:hover {
   top: -2px;
   right: -2px;
   transition: color 100ms;
-  padding: 4px 6px 0px;
+  padding: 4px 5px 0px;
   font-size: 25px;
   line-height: 18px;
 }

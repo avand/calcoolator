@@ -40,23 +40,28 @@ $(document).ready(function() {
     e.preventDefault();
 
     var lastCooler = $(".cooler:last");
-    lastCooler.clone().insertAfter(lastCooler);
+    var newCooler = lastCooler.clone().insertAfter(lastCooler);
 
-    bindCoolerEvents();
+    bindCoolerEvents(newCooler);
     updatePounds();
+
+    ga("send", "event", "cooler", "added");
   })
 
-  function bindCoolerEvents() {
-    $(".cooler-type").click(function(e) {
+  function bindCoolerEvents(cooler) {
+    cooler.find(".cooler-type").click(function(e) {
       var coolerType = $(this);
       var cooler = coolerType.parents(".cooler");
+
       cooler.find(".cooler-type").removeClass("cooler-type-active");
       coolerType.addClass("cooler-type-active");
 
       updatePounds();
-    })
 
-    $(".cooler-remove-control").click(function(e) {
+      ga("send", "event", "cooler", "type changed", coolerType.data("cooler-type"));
+    });
+
+    cooler.find(".cooler-remove-control").click(function(e) {
       e.preventDefault();
 
       var cooler = $(this).parents(".cooler");
@@ -66,9 +71,11 @@ $(document).ready(function() {
         cooler.remove();
         updatePounds();
       }, parseFloat(cooler.css("transition-duration")) * 1000);
-    })
 
-    $(".cool-slider").on("input", function() {
+      ga("send", "event", "cooler", "removed");
+    });
+
+    cooler.find(".cool-slider").on("input", function() {
       var slider = $(this);
       var changes = slider.data("changes");
       var changesWithin = slider.data("changes-within");
@@ -81,9 +88,17 @@ $(document).ready(function() {
       }
 
       updatePounds();
+    }).on("change", function() {
+      var slider = $(this);
+      ga("send", "event", slider.data("event-category"),
+        slider.data("event-name"), slider.val());
     })
   }
 
-  bindCoolerEvents();
+  $(".results-call-to-action a").click(function() {
+    ga("send", "event", "buy", "clicked");
+  })
+
+  bindCoolerEvents($(".cooler"));
   updatePounds();
 })

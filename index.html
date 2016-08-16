@@ -10,7 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
   </head>
   <body>
+    <p class="instructions">
+      Use this Cooler Calculator to estimate the amount of dry ice you’ll need to create either a <a href="http://bensdryice.com/pages/build-a-fridge" target="_parent">dry ice fridge</a> or <a href="http://bensdryice.com/pages/build-a-freezer" target="_parent">dry ice
+      freezer</a>.
+    </p>
+
     <div id="number-of-days" class="box padded">
+      <p class="tip">
+        How long is your trip?
+      </p>
+
       <div class="grid">
         <div class="grid__col grid__col--3-of-12 align-center">
           <div class="number-of-days-label slider-label">
@@ -29,6 +38,10 @@
 
     <div id="coolers">
       <div class="cooler box padded relative">
+        <p class="tip">
+          What kind of cooler are you packing?
+        </p>
+
         <a href="#" class="cooler-remove-control absolute">×</a>
 
         <div class="grid">
@@ -62,7 +75,7 @@
         </div>
       </div>
 
-      <a href="#" id="add-cooler-button" class="uppercase box padded align-center block">+ Add cooler</a>
+      <a href="#" id="add-cooler-button" class="uppercase box padded block">+ Add another cooler</a>
     </div>
 
     <div id="results">

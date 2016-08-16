@@ -35,6 +35,21 @@ function updatePounds() {
   $("#pounds").text(totalPounds);
 }
 
+function sliderMoved(event) {
+  var slider = $(this);
+  var changes = slider.data("changes");
+  var changesWithin = slider.data("changes-within");
+  var val = slider.val();
+
+  if (changesWithin) {
+    slider.parents(changesWithin).find(changes).text(val);
+  } else {
+    $(changes).text(val);
+  }
+
+  updatePounds();
+}
+
 $(document).ready(function() {
   $("#add-cooler-button").click(function(e) {
     e.preventDefault();
@@ -75,25 +90,16 @@ $(document).ready(function() {
       ga("send", "event", "cooler", "removed");
     });
 
-    cooler.find(".cool-slider").on("input", function() {
-      var slider = $(this);
-      var changes = slider.data("changes");
-      var changesWithin = slider.data("changes-within");
-      var val = slider.val();
-
-      if (changesWithin) {
-        slider.parents(changesWithin).find(changes).text(val);
-      } else {
-        $(changes).text(val);
-      }
-
-      updatePounds();
-    }).on("change", function() {
-      var slider = $(this);
-      ga("send", "event", slider.data("event-category"),
-        slider.data("event-name"), slider.val());
-    })
+    cooler.find("input")
+      .on("input", sliderMoved)
+      .on("change", function() {
+        var slider = $(this);
+        ga("send", "event", slider.data("event-category"),
+          slider.data("event-name"), slider.val());
+      })
   }
+
+  $("#number-of-days input").on("input", sliderMoved);
 
   $(".results-call-to-action a").click(function() {
     ga("send", "event", "buy", "clicked");

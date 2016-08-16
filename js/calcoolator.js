@@ -13,8 +13,8 @@ function calcPounds() {
     }
   });
 
-  var totalFreezerPounds = Math.ceil((totalFreezerQuarts / 3) * Math.pow(numberOfDays, 1.2));
-  var totalFridgePounds = Math.ceil((totalFridgeQuarts / 3) * Math.pow(numberOfDays, 1.1));
+  var totalFreezerPounds = (totalFreezerQuarts / 2.5) * Math.pow(1.2, numberOfDays);
+  var totalFridgePounds = (totalFridgeQuarts / 2.5) * Math.pow(1.1, numberOfDays);
 
   return {
     days: numberOfDays,
@@ -32,7 +32,7 @@ function calcPounds() {
 function updatePounds() {
   var result = calcPounds();
   var totalPounds = result.freezer.poundsDryIce + result.fridge.poundsDryIce;
-  $("#pounds").text(totalPounds);
+  $("#pounds").text(Math.ceil(totalPounds / 10) * 10);
 }
 
 $.fn.sliderify = function() {

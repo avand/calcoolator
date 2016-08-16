@@ -35,19 +35,31 @@ function updatePounds() {
   $("#pounds").text(totalPounds);
 }
 
-function sliderMoved(event) {
-  var slider = $(this);
-  var changes = slider.data("changes");
-  var changesWithin = slider.data("changes-within");
-  var val = slider.val();
+$.fn.sliderify = function() {
+  this.on("input", function() {
+    var slider = $(this);
+    var changes = slider.data("changes");
+    var changesWithin = slider.data("changes-within");
+    var val = slider.val();
 
-  if (changesWithin) {
-    slider.parents(changesWithin).find(changes).text(val);
-  } else {
-    $(changes).text(val);
-  }
+    if (changesWithin) {
+      slider.parents(changesWithin).find(changes).text(val);
+    } else {
+      $(changes).text(val);
+    }
 
-  updatePounds();
+    updatePounds();
+  })
+
+  this.on("change", function() {
+    var slider = $(this);
+    log(slider.data("event-category"), slider.data("event-name"), slider.val());
+  })
+}
+
+function log(category, action, label, value) {
+  ga("send", "event", category, action, label, value);
+  console.log(category, action, label, value);
 }
 
 $(document).ready(function() {
@@ -60,7 +72,7 @@ $(document).ready(function() {
     bindCoolerEvents(newCooler);
     updatePounds();
 
-    ga("send", "event", "cooler", "added");
+    log("cooler", "added");
   })
 
   function bindCoolerEvents(cooler) {
@@ -73,7 +85,7 @@ $(document).ready(function() {
 
       updatePounds();
 
-      ga("send", "event", "cooler", "type changed", coolerType.data("cooler-type"));
+      log("cooler", "type changed", coolerType.data("cooler-type"));
     });
 
     cooler.find(".cooler-remove-control").click(function(e) {
@@ -87,22 +99,16 @@ $(document).ready(function() {
         updatePounds();
       }, parseFloat(cooler.css("transition-duration")) * 1000);
 
-      ga("send", "event", "cooler", "removed");
+      log("cooler", "removed");
     });
 
-    cooler.find("input")
-      .on("input", sliderMoved)
-      .on("change", function() {
-        var slider = $(this);
-        ga("send", "event", slider.data("event-category"),
-          slider.data("event-name"), slider.val());
-      })
+    cooler.find("input").sliderify()
   }
 
-  $("#number-of-days input").on("input", sliderMoved);
+  $("#number-of-days input").sliderify()
 
   $(".results-call-to-action a").click(function() {
-    ga("send", "event", "buy", "clicked");
+    log("buy", "clicked");
   })
 
   bindCoolerEvents($(".cooler"));

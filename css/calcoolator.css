@@ -102,6 +102,7 @@ a:hover {
 
 #results {
   border-top: 2px solid black;
+  padding-top: 12px;
 }
 
 #unit {

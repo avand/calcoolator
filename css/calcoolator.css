@@ -105,7 +105,7 @@ a:hover {
   padding-top: 12px;
 }
 
-#unit {
+.unit {
   font-size: 0.8em;
 }
 
@@ -114,4 +114,23 @@ a:hover {
 }
 .results-label {
   font-size: .75em;
+}
+
+@media (max-width: 500px) {
+  .cooler-type {
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  .cooler-type img,
+  .cooler-type-label {
+    display: block;
+    margin: 0 auto;
+  }
+  .cooler-type img {
+    float: none !important;
+  }
+  .cooler-type-label {
+    line-height: inherit;
+    margin-left: 0;
+  }
 }

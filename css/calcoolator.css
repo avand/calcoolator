@@ -28,7 +28,7 @@ a:hover {
 }
 
 .padded {
-  padding: 10px 18px;
+  padding: 12px 18px;
 }
 
 .box {
@@ -65,7 +65,7 @@ a:hover {
   top: 0;
   right: 0;
   transition: color 100ms;
-  padding: 6px;
+  padding: 8px 6px 6px;
   font-size: 30px;
   line-height: 18px;
 }
@@ -80,7 +80,7 @@ a:hover {
 .cooler-type {
   border-radius: 4px;
   padding: 0 5px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   transition: background 300ms, border-color 100ms;
   border: 2px solid white;
 }

@@ -31,8 +31,11 @@ function calcPounds() {
 
 function updatePounds() {
   var result = calcPounds();
+  var poundInc = 10;
   var totalPounds = result.freezer.poundsDryIce + result.fridge.poundsDryIce;
-  $("#pounds").text(Math.ceil(totalPounds / 10) * 10);
+  var suggestedPounds = Math.round(totalPounds / poundInc) * poundInc;
+  if (suggestedPounds < poundInc) suggestedPounds = poundInc;
+  $("#pounds").text(suggestedPounds);
 }
 
 $.fn.sliderify = function() {

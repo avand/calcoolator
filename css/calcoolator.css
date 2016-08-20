@@ -46,6 +46,7 @@ a:hover {
 
 .slider-label {
   line-height: 34px;
+  min-width: 50px;
 }
 
 .cooler {
@@ -132,5 +133,8 @@ a:hover {
   .cooler-type-label {
     line-height: inherit;
     margin-left: 0;
+  }
+  .padded {
+    padding: 12px 10px;
   }
 }

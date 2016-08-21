@@ -114,6 +114,10 @@ $(document).ready(function() {
     log("buy", "clicked");
   })
 
+  $("footer a").click(function() {
+    log("madeby", "clicked");
+  })
+
   bindCoolerEvents($(".cooler"));
   updatePounds();
 })

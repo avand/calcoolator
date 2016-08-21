@@ -138,3 +138,14 @@ a:hover {
     padding: 12px 10px;
   }
 }
+
+footer {
+  margin-top: 3em;
+  font-size: 0.8em;
+  text-align: center;
+  opacity: 0.4;
+}
+
+footer a {
+  color: black;
+}
